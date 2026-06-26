@@ -14,55 +14,337 @@ import {
   Target,
   Layers,
   Workflow,
+  Sparkles,
+  Building2,
+  Rocket,
+  ChevronRight,
+  Star,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { FeatureCard } from "@/components/ui/FeatureCard";
 import { StatsCounter } from "@/components/ui/StatsCounter";
 
+const products = [
+  {
+    href: "/nucrm",
+    badge: "Flagship",
+    badgeColor: "primary",
+    icon: Users,
+    title: "NuCRM",
+    subtitle: "AI-Powered CRM",
+    desc: "Real-time AI lead scoring, intelligent routing, and multi-channel inbox. Convert 34% more leads.",
+    feature: "AI scores every 30s",
+    gradient: "from-primary/20 via-primary/5 to-transparent",
+    border: "hover:border-primary/30",
+    glow: "group-hover:shadow-primary/10",
+    accent: "text-primary",
+    iconBg: "gradient-bg",
+  },
+  {
+    href: "/leadgenius",
+    badge: "Outreach",
+    badgeColor: "accent",
+    icon: Target,
+    title: "LeadGenius",
+    subtitle: "Multi-Channel Outreach",
+    desc: "97.2% inbox placement. Email + WhatsApp at scale. AI handles 85% of leads autonomously.",
+    feature: "97.2% deliverability",
+    gradient: "from-accent/20 via-accent/5 to-transparent",
+    border: "hover:border-accent/30",
+    glow: "group-hover:shadow-accent/10",
+    accent: "text-accent",
+    iconBg: "gradient-bg-accent",
+  },
+  {
+    href: "/agent-fleet",
+    badge: "Autonomous",
+    badgeColor: "secondary",
+    icon: Bot,
+    title: "AW Agent Fleet",
+    subtitle: "Multi-Agent AI Workforce",
+    desc: "Deploy autonomous agents for sales, support, research, and operations. Self-orchestrating teams.",
+    feature: "24/7 autonomous ops",
+    gradient: "from-secondary/20 via-secondary/5 to-transparent",
+    border: "hover:border-secondary/30",
+    glow: "group-hover:shadow-secondary/10",
+    accent: "text-secondary-light",
+    iconBg: "gradient-bg-warm",
+  },
+  {
+    href: "/digital-services",
+    badge: "Agency",
+    badgeColor: "warm",
+    icon: Globe,
+    title: "Digital Services",
+    subtitle: "Web + SEO + Consulting",
+    desc: "Modern web dev, SEO optimization, AI consulting, and digital strategy. From concept to scale.",
+    feature: "Full-stack agency",
+    gradient: "from-warm/20 via-warm/5 to-transparent",
+    border: "hover:border-warm/30",
+    glow: "group-hover:shadow-warm/10",
+    accent: "text-warm",
+    iconBg: "bg-warm/20 border border-warm/30",
+  },
+];
+
 export default function HomePage() {
   return (
     <div className="overflow-hidden">
-      {/* ==================== HERO SECTION ==================== */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-bg-dark to-bg-dark" />
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/4 size-72 rounded-full bg-primary/20 blur-[120px] animate-float-slow" />
-          <div className="absolute bottom-1/4 right-1/4 size-96 rounded-full bg-secondary/15 blur-[150px] animate-float" style={{ animationDelay: "-3s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-48 rounded-full bg-accent/10 blur-[100px] animate-pulse-glow" />
+      {/* ============================
+          HERO
+          ============================ */}
+      <section className="relative min-h-screen flex items-center overflow-hidden">
+        {/* Deep background gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/[0.08] via-bg-dark via-[40%] to-bg-dark" />
+
+        {/* Animated blobs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/5 size-[500px] rounded-full bg-gradient-to-br from-primary/15 to-secondary/10 blur-[130px] animate-float-slow" style={{ animationDelay: "0s" }} />
+          <div className="absolute bottom-1/4 right-1/6 size-[450px] rounded-[40%_60%_70%_30%/40%_50%_60%_50%] bg-gradient-to-tr from-accent/10 via-secondary/10 to-transparent blur-[100px] animate-morph" style={{ animationDelay: "-4s" }} />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[300px] rounded-full bg-gradient-to-r from-primary/5 via-warm/5 to-rose/5 blur-[120px] animate-pulse-glow" />
+          <div className="absolute top-[60%] left-[10%] size-[200px] rounded-full bg-accent/10 blur-[90px] animate-drift" style={{ animationDuration: "30s" }} />
         </div>
 
-        {/* Grid overlay */}
+        {/* Subtle grid */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px)`,
-            backgroundSize: "60px 60px",
+            backgroundImage: `linear-gradient(rgba(255,255,255,.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.08) 1px, transparent 1px)`,
+            backgroundSize: "50px 50px",
           }}
         />
 
-        <div className="container-main relative z-10 pt-24 pb-16 text-center">
+        <div className="container-main relative z-10 pt-28 pb-20">
+          <div className="max-w-5xl mx-auto text-center">
+            <AnimatedSection>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.04] text-xs text-primary-light font-medium tracking-wide mb-8">
+                <Sparkles className="size-3.5" />
+                AI-Powered Business Suite
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={100}>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold tracking-tight leading-[0.85] mb-6">
+                <span className="block">Power Your</span>
+                <span className="block">
+                  Business <span className="gradient-text-premium">With AI</span>
+                </span>
+              </h1>
+            </AnimatedSection>
+
+            <AnimatedSection delay={200}>
+              <p className="text-base sm:text-lg md:text-xl text-text-secondary/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Enterprise-grade CRM, multichannel outreach, autonomous AI agents,
+                and digital services — engineered to transform how you work.
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={300}>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href="/nucrm"
+                  className="group relative inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-white overflow-hidden transition-all duration-500 hover:scale-[1.03]"
+                >
+                  <span className="absolute inset-0 gradient-bg-premium rounded-full" />
+                  <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative flex items-center gap-2">
+                    Explore Products
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                  </span>
+                </Link>
+                <Link
+                  href="/digital-services"
+                  className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-text-primary border border-border/60 hover:border-primary/40 bg-bg-card/50 hover:bg-bg-card transition-all duration-300"
+                >
+                  <Building2 className="size-4" />
+                  Our Services
+                </Link>
+              </div>
+            </AnimatedSection>
+
+            {/* Stats — redesigned with glass cards */}
+            <AnimatedSection delay={400}>
+              <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                {[
+                  { value: 5000, suffix: "+", label: "Active Users" },
+                  { value: 99.9, suffix: "%", label: "Uptime", prefix: "" },
+                  { value: 34, suffix: "%", label: "Conversion Boost", prefix: "+" },
+                  { value: 50, suffix: "+", label: "Enterprise Clients" },
+                ].map((stat, i) => (
+                  <div key={stat.label} className="glass-light rounded-2xl p-5 text-center group hover:border-primary/20 transition-all duration-300">
+                    <StatsCounter
+                      value={typeof stat.value === "number" ? stat.value : parseFloat(stat.value)}
+                      suffix={stat.suffix}
+                      label={stat.label}
+                      prefix={stat.prefix || ""}
+                    />
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted/60">
+          <span className="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+          <div className="size-4 rounded-full border border-text-muted/40 flex items-center justify-center">
+            <div className="size-1 rounded-full bg-text-muted/60 animate-bounce" />
+          </div>
+        </div>
+      </section>
+
+      {/* ============================
+          PRODUCTS
+          ============================ */}
+      <section className="py-28 relative">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] via-60% to-transparent pointer-events-none" />
+        <div className="container-main relative">
+          <AnimatedSection className="text-center mb-16">
+            <Badge variant="primary" className="mb-4">Products</Badge>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+              Everything You Need to <span className="gradient-text-premium">Scale</span>
+            </h2>
+            <p className="text-text-secondary/80 max-w-xl mx-auto text-lg">
+              Four integrated solutions that work as one unified platform.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-5 lg:gap-6">
+            {products.map((p, i) => (
+              <AnimatedSection key={p.title} delay={60 * (i + 1)}>
+                <Link
+                  href={p.href}
+                  className={`group relative block overflow-hidden rounded-3xl border border-border/40 ${p.border} bg-bg-card/60 hover:bg-bg-card transition-all duration-500 p-7 lg:p-9 ${p.glow}`}
+                >
+                  {/* Gradient overlay on hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${p.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-700`} />
+
+                  {/* Corner glow */}
+                  <div className={`absolute -top-20 -right-20 size-40 rounded-full bg-gradient-to-br ${p.gradient} blur-[80px] opacity-0 group-hover:opacity-100 transition-opacity duration-1000`} />
+
+                  <div className="relative">
+                    {/* Badge + Feature tag */}
+                    <div className="flex items-center justify-between mb-5">
+                      <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider ${
+                        p.badgeColor === "accent" ? "bg-accent/10 text-accent border border-accent/20" :
+                        p.badgeColor === "secondary" ? "bg-secondary/10 text-secondary-light border border-secondary/20" :
+                        p.badgeColor === "warm" ? "bg-warm/10 text-warm border border-warm/20" :
+                        "bg-primary/10 text-primary-light border border-primary/20"
+                      }`}>
+                        <Star className="size-3" />
+                        {p.badge}
+                      </div>
+                      <span className={`text-[11px] font-medium ${p.accent} opacity-0 group-hover:opacity-100 transition-opacity`}>
+                        {p.feature}
+                      </span>
+                    </div>
+
+                    {/* Icon + Title row */}
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className={`size-14 shrink-0 rounded-2xl ${p.iconBg} flex items-center justify-center shadow-lg shadow-black/20`}>
+                        <p.icon className="size-6 text-white" />
+                      </div>
+                      <div className="pt-1">
+                        <h3 className="text-2xl font-bold tracking-tight">{p.title}</h3>
+                        <p className="text-sm text-text-secondary/80">{p.subtitle}</p>
+                      </div>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-text-secondary/70 text-sm leading-relaxed mb-6 line-clamp-2">
+                      {p.desc}
+                    </p>
+
+                    {/* CTA */}
+                    <div className={`flex items-center gap-1.5 text-sm font-semibold ${p.accent} group-hover:gap-3 transition-all duration-300`}>
+                      Learn more <ChevronRight className="size-4" />
+                    </div>
+                  </div>
+                </Link>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================
+          WHY ABET WORKS
+          ============================ */}
+      <section className="py-28 relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.015] to-transparent" />
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 size-[600px] rounded-full bg-gradient-to-r from-primary/[0.03] to-transparent blur-[120px]" />
+
+        <div className="container-main relative">
+          <AnimatedSection className="text-center mb-16">
+            <Badge variant="default" className="border-accent/20 text-accent mb-4">Why Abet Works</Badge>
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+              Built for <span className="gradient-text-accent">Performance</span>
+            </h2>
+            <p className="text-text-secondary/80 max-w-xl mx-auto text-lg">
+              Enterprise infrastructure, consumer-grade experience.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
+            {[
+              { icon: Zap, title: "Real-Time AI", desc: "Live scoring and routing every 30 seconds. Not batch — instant intelligence.", gradient: "from-primary/10 to-primary/5", border: "hover:border-primary/20" },
+              { icon: Shield, title: "Enterprise Security", desc: "SOC 2 compliant, end-to-end encryption, RBAC. Your data stays yours.", gradient: "from-accent/10 to-accent/5", border: "hover:border-accent/20" },
+              { icon: BarChart3, title: "Actionable Analytics", desc: "Real-time dashboards, predictive insights, and custom reports that drive decisions.", gradient: "from-secondary/10 to-secondary/5", border: "hover:border-secondary/20" },
+              { icon: Layers, title: "Seamless Integration", desc: "Connect your stack via API, webhooks, and native integrations. No code required.", gradient: "from-warm/10 to-warm/5", border: "hover:border-warm/20" },
+              { icon: MessageSquare, title: "Multi-Channel", desc: "Meet customers everywhere — email, WhatsApp, live chat, SMS, and social.", gradient: "from-rose/10 to-rose/5", border: "hover:border-rose/20" },
+              { icon: Workflow, title: "Automated Workflows", desc: "Drag-and-drop automation builder. AI handles the heavy lifting, you handle strategy.", gradient: "from-emerald/10 to-emerald/5", border: "hover:border-emerald/20" },
+            ].map((f, i) => (
+              <AnimatedSection key={f.title} delay={i * 80}>
+                <div className={`group rounded-2xl border border-border/40 ${f.border} bg-bg-card/40 hover:bg-bg-card/80 transition-all duration-500 p-7 h-full`}>
+                  <div className={`size-11 rounded-xl bg-gradient-to-br ${f.gradient} border border-white/5 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <f.icon className="size-5 text-text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{f.title}</h3>
+                  <p className="text-sm text-text-secondary/70 leading-relaxed">{f.desc}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================
+          CTA
+          ============================ */}
+      <section className="py-28 relative">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[700px] rounded-full bg-gradient-to-r from-primary/5 via-accent/5 to-secondary/5 blur-[160px]" />
+          <div className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, rgba(255,255,255,.1) 1px, transparent 0)`,
+              backgroundSize: "30px 30px",
+            }}
+          />
+        </div>
+
+        <div className="container-main relative text-center">
           <AnimatedSection>
-            <Badge variant="primary" className="mb-6">
-              <Zap className="size-3" />
-              AI-Powered Business Suite
-            </Badge>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-warm/20 bg-warm/[0.04] text-xs text-warm font-medium tracking-wide mb-8">
+              <Rocket className="size-3.5" />
+              Get Started
+            </div>
           </AnimatedSection>
 
           <AnimatedSection delay={100}>
-            <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9] mb-6">
-              Power Your Business
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4">
+              Ready to Transform
               <br />
-              <span className="gradient-text">With AI</span>
-            </h1>
+              <span className="gradient-text-warm">Your Business?</span>
+            </h2>
           </AnimatedSection>
 
           <AnimatedSection delay={200}>
-            <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-10 leading-relaxed">
-              Enterprise-grade CRM, multi-channel outreach, autonomous AI agents,
-              and digital services — all designed to transform how you work.
+            <p className="text-text-secondary/80 max-w-lg mx-auto mb-10 text-lg">
+              Start with a free consultation. No commitment, no pitch — just real solutions
+              from people who build what they sell.
             </p>
           </AnimatedSection>
 
@@ -70,225 +352,18 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/nucrm"
-                className="inline-flex items-center gap-2 rounded-full gradient-bg px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02]"
+                className="group relative inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-white overflow-hidden transition-all duration-500 hover:scale-[1.03]"
               >
-                Explore Products
-                <ArrowRight className="size-4" />
+                <span className="absolute inset-0 gradient-bg-premium rounded-full" />
+                <span className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="relative flex items-center gap-2">
+                  Start Free Trial
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+                </span>
               </Link>
               <Link
                 href="/digital-services"
-                className="inline-flex items-center gap-2 rounded-full bg-bg-card text-text-primary border border-border px-8 py-3.5 text-base font-medium hover:border-primary/30 hover:bg-bg-card-hover transition-all duration-300"
-              >
-                Our Services
-              </Link>
-            </div>
-          </AnimatedSection>
-
-          {/* Stats */}
-          <AnimatedSection delay={400}>
-            <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto">
-              <StatsCounter value={5000} suffix="+" label="Active Users" />
-              <StatsCounter value={99.9} suffix="%" label="Uptime" prefix="" />
-              <StatsCounter value={34} suffix="%" label="Avg. Conversion Boost" prefix="+" />
-              <StatsCounter value={50} suffix="+" label="Enterprise Clients" />
-            </div>
-          </AnimatedSection>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted animate-float">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <div className="size-5 rounded-full border-2 border-text-muted flex items-center justify-center">
-            <div className="size-1.5 rounded-full bg-text-muted animate-bounce" />
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== PRODUCTS OVERVIEW ==================== */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
-        <div className="container-main relative">
-          <AnimatedSection className="text-center mb-16">
-            <Badge variant="primary" className="mb-4">Our Products</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Everything You Need to <span className="gradient-text">Scale</span>
-            </h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              Four powerful solutions that work together seamlessly.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-            {/* NuCRM */}
-            <AnimatedSection delay={100}>
-              <Link href="/nucrm" className="group block relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 lg:p-10 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1">
-                <div className="absolute top-0 right-0 size-64 bg-primary/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <Badge variant="primary" className="mb-4">Flagship Product</Badge>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="size-12 rounded-xl gradient-bg flex items-center justify-center">
-                    <Users className="size-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">NuCRM</h3>
-                    <p className="text-sm text-text-secondary">AI-Powered CRM</p>
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Real-time AI lead scoring, intelligent routing, and multi-channel inbox.
-                  Convert 34% more leads with AI that scores every 30 seconds.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:gap-3 transition-all">
-                  Explore NuCRM <ArrowRight className="size-4" />
-                </div>
-              </Link>
-            </AnimatedSection>
-
-            {/* LeadGenius */}
-            <AnimatedSection delay={200}>
-              <Link href="/leadgenius" className="group block relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 lg:p-10 transition-all duration-500 hover:border-accent/20 hover:shadow-xl hover:shadow-accent/5 hover:-translate-y-1">
-                <div className="absolute top-0 right-0 size-64 bg-accent/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <Badge variant="accent" className="mb-4">Outreach Engine</Badge>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="size-12 rounded-xl gradient-bg-accent flex items-center justify-center">
-                    <Target className="size-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">LeadGenius</h3>
-                    <p className="text-sm text-text-secondary">Multi-Channel Outreach</p>
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  97.2% inbox placement. Email + WhatsApp at scale. AI agents handle 85% of leads autonomously.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-medium text-accent group-hover:gap-3 transition-all">
-                  Explore LeadGenius <ArrowRight className="size-4" />
-                </div>
-              </Link>
-            </AnimatedSection>
-
-            {/* AW Agent Fleet */}
-            <AnimatedSection delay={150}>
-              <Link href="/agent-fleet" className="group block relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 lg:p-10 transition-all duration-500 hover:border-secondary/20 hover:shadow-xl hover:shadow-secondary/5 hover:-translate-y-1">
-                <div className="absolute top-0 right-0 size-64 bg-secondary/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <Badge variant="default" className="mb-4 border-secondary/20 text-secondary">Autonomous</Badge>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="size-12 rounded-xl gradient-bg-warm flex items-center justify-center">
-                    <Bot className="size-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">AW Agent Fleet</h3>
-                    <p className="text-sm text-text-secondary">Multi-Agent AI Workforce</p>
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Deploy autonomous AI agents for sales, support, research, and operations. Self-orchestrating multi-agent teams.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-medium gradient-text-warm group-hover:gap-3 transition-all">
-                  Explore Agent Fleet <ArrowRight className="size-4" />
-                </div>
-              </Link>
-            </AnimatedSection>
-
-            {/* Digital Services */}
-            <AnimatedSection delay={250}>
-              <Link href="/digital-services" className="group block relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 lg:p-10 transition-all duration-500 hover:border-accent-orange/20 hover:shadow-xl hover:shadow-accent-orange/5 hover:-translate-y-1">
-                <div className="absolute top-0 right-0 size-64 bg-accent-orange/10 blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <Badge variant="warning" className="mb-4">Agency Services</Badge>
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="size-12 rounded-xl bg-accent-orange/20 border border-accent-orange/30 flex items-center justify-center">
-                    <Globe className="size-6 text-accent-orange" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold">Digital Services</h3>
-                    <p className="text-sm text-text-secondary">Web + SEO + Consulting</p>
-                  </div>
-                </div>
-                <p className="text-text-secondary mb-6 leading-relaxed">
-                  Modern web development, SEO optimization, AI consulting, and digital strategy. From concept to scale.
-                </p>
-                <div className="flex items-center gap-2 text-sm font-medium text-accent-orange group-hover:gap-3 transition-all">
-                  Explore Services <ArrowRight className="size-4" />
-                </div>
-              </Link>
-            </AnimatedSection>
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== WHY ABET WORKS ==================== */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
-        <div className="container-main relative">
-          <AnimatedSection className="text-center mb-16">
-            <Badge variant="primary" className="mb-4">Why Abet Works</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Built for <span className="gradient-text">Performance</span>
-            </h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              Enterprise infrastructure, consumer-grade experience.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <FeatureCard
-              icon={Zap}
-              title="Real-Time AI"
-              description="Live scoring and routing every 30 seconds. Not batch processing — instant intelligence."
-            />
-            <FeatureCard
-              icon={Shield}
-              title="Enterprise Security"
-              description="SOC 2 compliant, end-to-end encryption, role-based access control."
-            />
-            <FeatureCard
-              icon={BarChart3}
-              title="Actionable Analytics"
-              description="Real-time dashboards, predictive insights, and custom reporting."
-            />
-            <FeatureCard
-              icon={Layers}
-              title="Seamless Integration"
-              description="Connect with your existing tools via API, webhooks, and native integrations."
-            />
-            <FeatureCard
-              icon={MessageSquare}
-              title="Multi-Channel"
-              description="Meet customers where they are — email, WhatsApp, live chat, and more."
-            />
-            <FeatureCard
-              icon={Workflow}
-              title="Automated Workflows"
-              description="Build complex automations without code. AI handles the heavy lifting."
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ==================== CTA SECTION ==================== */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[600px] rounded-full bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 blur-[150px]" />
-        </div>
-        <div className="container-main relative text-center">
-          <AnimatedSection>
-            <Badge variant="primary" className="mb-4">Get Started</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-text-secondary max-w-lg mx-auto mb-10">
-              Start with a free consultation. No commitment, no sales pitch — just real solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                href="/nucrm"
-                className="inline-flex items-center gap-2 rounded-full gradient-bg px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02]"
-              >
-                Start Free Trial
-                <ArrowRight className="size-4" />
-              </Link>
-              <Link
-                href="/digital-services"
-                className="inline-flex items-center gap-2 rounded-full bg-bg-card text-text-primary border border-border px-8 py-3.5 text-base font-medium hover:border-primary/30 transition-all duration-300"
+                className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-text-primary border border-border/60 hover:border-warm/40 bg-bg-card/50 hover:bg-bg-card transition-all duration-300"
               >
                 Book Consultation
               </Link>
