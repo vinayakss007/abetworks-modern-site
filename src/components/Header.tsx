@@ -11,6 +11,8 @@ const navLinks = [
   { href: "/leadgenius", label: "LeadGenius" },
   { href: "/agent-fleet", label: "Agent Fleet" },
   { href: "/digital-services", label: "Services" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Header() {
