@@ -4,7 +4,7 @@ import Link from "next/link";
 import {
   ArrowRight, Mail, MapPin, Send,
   MessageSquare, Sparkles, CheckCircle2, Building2,
-  Linkedin, Twitter, Globe, Youtube,
+  Youtube, Facebook, Linkedin, Twitter,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
@@ -15,21 +15,13 @@ const contactMethods = [
     href: "mailto:hello@abetworks.in",
     accent: "text-primary", bg: "bg-primary/5",
     desc: "We typically respond within 24 hours.",
-  },
-  {
-    icon: MapPin, title: "Our Location",
-    value: "India",
-    href: "#",
-    accent: "text-secondary", bg: "bg-secondary/5",
-    desc: "Available for remote collaboration worldwide.",
-  },
 ];
 
 const socialLinks = [
-  { icon: Linkedin, label: "LinkedIn", href: "#", accent: "text-primary", bg: "bg-primary/5" },
-  { icon: Twitter, label: "Twitter / X", href: "#", accent: "text-accent", bg: "bg-accent/5" },
   { icon: Youtube, label: "YouTube", href: "#", accent: "text-rose", bg: "bg-rose/5" },
-  { icon: Globe, label: "Website", href: "https://abetworks.in", accent: "text-warm", bg: "bg-warm/5" },
+  { icon: Facebook, label: "Facebook", href: "#", accent: "text-primary", bg: "bg-primary/5" },
+  { icon: Linkedin, label: "LinkedIn", href: "#", accent: "text-secondary", bg: "bg-secondary/5" },
+  { icon: Twitter, label: "Twitter / X", href: "#", accent: "text-accent", bg: "bg-accent/5" },
 ];
 
 const faqs = [
