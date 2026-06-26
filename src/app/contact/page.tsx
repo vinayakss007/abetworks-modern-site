@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import {
-  ArrowRight, Mail, Phone, MapPin, Clock, Send,
+  ArrowRight, Mail, MapPin, Send,
   MessageSquare, Sparkles, CheckCircle2, Building2,
-  Linkedin, Twitter, Github, Globe,
+  Linkedin, Twitter, Globe, Youtube,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
@@ -15,13 +15,6 @@ const contactMethods = [
     href: "mailto:hello@abetworks.in",
     accent: "text-primary", bg: "bg-primary/5",
     desc: "We typically respond within 24 hours.",
-  },
-  {
-    icon: Phone, title: "Call Us",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
-    accent: "text-accent", bg: "bg-accent/5",
-    desc: "Mon–Sat, 10 AM – 7 PM IST",
   },
   {
     icon: MapPin, title: "Our Location",
@@ -35,7 +28,7 @@ const contactMethods = [
 const socialLinks = [
   { icon: Linkedin, label: "LinkedIn", href: "#", accent: "text-primary", bg: "bg-primary/5" },
   { icon: Twitter, label: "Twitter / X", href: "#", accent: "text-accent", bg: "bg-accent/5" },
-  { icon: Github, label: "GitHub", href: "https://github.com/vinayakss007", accent: "text-secondary", bg: "bg-secondary/5" },
+  { icon: Youtube, label: "YouTube", href: "#", accent: "text-rose", bg: "bg-rose/5" },
   { icon: Globe, label: "Website", href: "https://abetworks.in", accent: "text-warm", bg: "bg-warm/5" },
 ];
 

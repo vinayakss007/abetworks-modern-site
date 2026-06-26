@@ -41,7 +41,7 @@ export function Footer() {
               Powering sales, outreach, automation, and digital growth.
             </p>
             <div className="flex gap-3">
-              {["twitter", "github", "linkedin"].map((social) => (
+              {["twitter", "linkedin", "youtube", "facebook"].map((social) => (
                 <a
                   key={social}
                   href="#"
