@@ -18,7 +18,6 @@ import {
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { Badge } from "@/components/ui/Badge";
-import { FeatureCard } from "@/components/ui/FeatureCard";
 import { StatsCounter } from "@/components/ui/StatsCounter";
 
 const features = [
@@ -66,14 +65,18 @@ export default function AgentFleetPage() {
     <div className="overflow-hidden">
       {/* ==================== HERO ==================== */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-bg-dark to-bg-dark" />
+        {/* Pearl white background */}
+        <div className="absolute inset-0 bg-bg-white" />
+        {/* Ambient blobs */}
         <div className="absolute inset-0">
           <div className="absolute top-1/4 right-1/3 size-[450px] rounded-full bg-secondary/10 blur-[140px] animate-pulse-glow" />
           <div className="absolute bottom-1/4 left-1/3 size-[350px] rounded-full bg-accent-orange/10 blur-[100px] animate-float-slow" />
         </div>
-        <div className="absolute inset-0 opacity-[0.02]"
+        {/* Dot pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,.1) 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,.08) 1px, transparent 0)`,
             backgroundSize: "40px 40px",
           }}
         />
@@ -81,7 +84,7 @@ export default function AgentFleetPage() {
         <div className="container-main relative z-10">
           <div className="max-w-4xl">
             <AnimatedSection>
-              <Badge variant="default" className="mb-6 border-secondary/30 text-secondary">
+              <Badge variant="default" className="mb-6 border-secondary/30 text-secondary glass-card">
                 <Bot className="size-3" /> Autonomous Platform
               </Badge>
             </AnimatedSection>
@@ -112,7 +115,7 @@ export default function AgentFleetPage() {
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full bg-bg-card text-text-primary border border-border px-8 py-3.5 text-base font-medium hover:border-secondary/30 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-full glass-card text-text-primary border border-border px-8 py-3.5 text-base font-medium hover:border-secondary/30 transition-all duration-300"
                 >
                   See Demo
                 </Link>
@@ -125,7 +128,7 @@ export default function AgentFleetPage() {
       {/* ==================== STATS ==================== */}
       <section className="py-16 relative">
         <div className="container-main">
-          <div className="rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 md:p-12">
+          <div className="glass-card rounded-3xl p-8 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, i) => (
                 <AnimatedSection key={stat.label} delay={i * 100}>
@@ -146,7 +149,7 @@ export default function AgentFleetPage() {
       <section className="py-24 relative">
         <div className="container-main">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary">Platform</Badge>
+            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary glass-card">Platform</Badge>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Agents That <span className="gradient-text-warm">Work Together</span>
             </h2>
@@ -162,46 +165,44 @@ export default function AgentFleetPage() {
                 desc: "Qualifies leads, books meetings, sends follow-ups, and manages pipeline. Integrates with NuCRM for seamless handoff.",
                 icon: Zap,
                 agents: ["Lead Qualifier", "Meeting Booker", "Follow-Up Specialist", "Pipeline Manager"],
-                gradient: "from-primary/10 to-primary/5",
-                border: "border-primary/20",
+                accent: "from-primary via-primary/40",
               },
               {
                 title: "Support Agent",
                 desc: "Handles Tier 1-2 support tickets autonomously. Escalates complex issues with full context. 24/7 availability.",
                 icon: MessageSquare,
                 agents: ["Ticket Handler", "FAQ Responder", "Escalation Manager", "Satisfaction Surveyor"],
-                gradient: "from-accent/10 to-accent/5",
-                border: "border-accent/20",
+                accent: "from-accent via-accent/40",
               },
               {
                 title: "Research Agent",
                 desc: "Monitors competitors, gathers market intelligence, analyzes trends, and generates reports. Runs continuously in the background.",
                 icon: Brain,
                 agents: ["Competitor Tracker", "Market Analyst", "Trend Spotter", "Report Generator"],
-                gradient: "from-secondary/10 to-secondary/5",
-                border: "border-secondary/20",
+                accent: "from-secondary via-secondary/40",
               },
               {
                 title: "Operations Agent",
                 desc: "Automates data entry, report generation, invoice processing, and workflow approvals. Reduces ops overhead by 80%.",
                 icon: Layers,
                 agents: ["Data Processor", "Report Runner", "Invoice Handler", "Approval Manager"],
-                gradient: "from-accent-orange/10 to-accent-orange/5",
-                border: "border-accent-orange/20",
+                accent: "from-accent-orange via-accent-orange/40",
               },
             ].map((category, i) => (
               <AnimatedSection key={category.title} delay={i * 120}>
-                <div className={`rounded-2xl border ${category.border} bg-gradient-to-br ${category.gradient} p-8 h-full`}>
+                <div className="glass-card rounded-2xl p-8 h-full relative overflow-hidden">
+                  {/* Colored accent gradient top border */}
+                  <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${category.accent}`} />
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="size-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
-                      <category.icon className="size-5 text-text-primary" />
+                    <div className="size-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                      <category.icon className="size-5 text-primary" />
                     </div>
                     <h3 className="text-xl font-bold">{category.title}</h3>
                   </div>
                   <p className="text-text-secondary text-sm mb-5 leading-relaxed">{category.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {category.agents.map((agent) => (
-                      <span key={agent} className="text-xs px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-text-muted">
+                      <span key={agent} className="text-xs px-3 py-1.5 rounded-full bg-white/70 border border-border/50 text-text-muted">
                         {agent}
                       </span>
                     ))}
@@ -218,7 +219,7 @@ export default function AgentFleetPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-secondary/[0.02] to-transparent" />
         <div className="container-main relative">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary">Features</Badge>
+            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary glass-card">Features</Badge>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Enterprise <span className="gradient-text-warm">Agent Infrastructure</span>
             </h2>
@@ -230,7 +231,17 @@ export default function AgentFleetPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
               <AnimatedSection key={feature.title} delay={i * 80}>
-                <FeatureCard {...feature} />
+                <div className="group relative overflow-hidden rounded-2xl glass-card p-6 transition-all duration-500 hover:glass-strong hover:shadow-md hover:-translate-y-1">
+                  {/* Hover glow */}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-primary/0 via-primary/5 to-secondary/0 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-500" />
+                  <div className="relative">
+                    <div className="mb-4 flex size-12 items-center justify-center rounded-xl bg-primary/10 border border-primary/20 group-hover:border-primary/30 transition-colors">
+                      <feature.icon className="size-6 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-semibold text-text-primary mb-2">{feature.title}</h3>
+                    <p className="text-sm text-text-secondary leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
               </AnimatedSection>
             ))}
           </div>
@@ -241,7 +252,7 @@ export default function AgentFleetPage() {
       <section className="py-24 relative">
         <div className="container-main">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary">Architecture</Badge>
+            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary glass-card">Architecture</Badge>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               How the Fleet <span className="gradient-text-warm">Orchestrates</span>
             </h2>
@@ -255,8 +266,8 @@ export default function AgentFleetPage() {
               { step: "Deliver", desc: "Output is verified, logged, and delivered to target" },
             ].map((item, i) => (
               <AnimatedSection key={item.step} delay={i * 100}>
-                <div className="relative rounded-2xl border border-border/50 bg-bg-card p-6 text-center group hover:border-secondary/20 transition-all duration-500">
-                  <div className="text-3xl font-bold gradient-text-warm/40 mb-2">{String(i + 1).padStart(2, "0")}</div>
+                <div className="relative rounded-2xl glass-card p-6 text-center group hover:shadow-md hover:-translate-y-0.5 transition-all duration-500">
+                  <div className="text-3xl font-bold gradient-text-warm mb-2">{String(i + 1).padStart(2, "0")}</div>
                   <h4 className="font-semibold mb-2">{item.step}</h4>
                   <p className="text-xs text-text-secondary">{item.desc}</p>
                 </div>
@@ -270,7 +281,7 @@ export default function AgentFleetPage() {
       <section className="py-24 relative">
         <div className="container-main">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary">Pricing</Badge>
+            <Badge variant="default" className="mb-4 border-secondary/30 text-secondary glass-card">Pricing</Badge>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
               Scale Your <span className="gradient-text-warm">Workforce</span>
             </h2>
@@ -304,14 +315,16 @@ export default function AgentFleetPage() {
               },
             ].map((tier, i) => (
               <AnimatedSection key={tier.name} delay={i * 100}>
-                <div className={`relative rounded-2xl border p-8 h-full flex flex-col ${
-                  tier.featured
-                    ? "border-secondary/30 bg-gradient-to-b from-secondary/5 to-bg-card shadow-lg shadow-secondary/10"
-                    : "border-border/50 bg-bg-card"
-                }`}>
+                <div
+                  className={`relative rounded-2xl p-8 h-full flex flex-col ${
+                    tier.featured
+                      ? "glass-card border-secondary/30 shadow-lg shadow-secondary/10"
+                      : "glass-card"
+                  }`}
+                >
                   {tier.featured && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge variant="default" className="border-secondary/30 text-secondary">Most Popular</Badge>
+                      <Badge variant="default" className="border-secondary/30 text-secondary glass-card">Most Popular</Badge>
                     </div>
                   )}
                   <h3 className="text-xl font-bold mb-1">{tier.name}</h3>
@@ -333,7 +346,7 @@ export default function AgentFleetPage() {
                     className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 ${
                       tier.featured
                         ? "bg-gradient-to-r from-accent-orange to-secondary text-white hover:shadow-lg hover:shadow-secondary/25"
-                        : "bg-bg-card-hover text-text-primary border border-border hover:border-secondary/30"
+                        : "glass-card text-text-primary border border-border hover:border-secondary/30"
                     }`}
                   >
                     Deploy Now <ArrowRight className="size-4" />

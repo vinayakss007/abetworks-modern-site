@@ -13,12 +13,9 @@ import {
   CheckCircle2,
   Globe,
   Zap,
-  Users,
   Brain,
 } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { Badge } from "@/components/ui/Badge";
-import { FeatureCard } from "@/components/ui/FeatureCard";
 import { StatsCounter } from "@/components/ui/StatsCounter";
 
 const features = [
@@ -26,31 +23,43 @@ const features = [
     icon: Mail,
     title: "97.2% Inbox Placement",
     description: "Warm domain infrastructure with graduated ramp-up. Per-recipient send-time optimization based on historical patterns.",
+    accent: "text-accent",
+    bg: "bg-accent/5",
   },
   {
     icon: MessageSquare,
     title: "WhatsApp Integration",
     description: "15 phone number rotation pool, pre-approved templates, 24-hour free-form reply window with auto media compression.",
+    accent: "text-primary",
+    bg: "bg-primary/5",
   },
   {
     icon: Bot,
     title: "AI Agent Conversations",
     description: "Autonomous AI handles 85% of leads without human handoff. 2-3 week training period for optimal performance.",
+    accent: "text-secondary",
+    bg: "bg-secondary/5",
   },
   {
     icon: Brain,
     title: "Smart Sequencing",
     description: "Multi-step sequences across email and WhatsApp. Automatic pause on reply, smart re-engagement for cold leads.",
+    accent: "text-accent",
+    bg: "bg-accent/5",
   },
   {
     icon: BarChart3,
     title: "Deliverability Monitoring",
     description: "Real-time inbox placement tracking, spam score alerts, domain reputation monitoring across all sending accounts.",
+    accent: "text-primary",
+    bg: "bg-primary/5",
   },
   {
     icon: Shield,
     title: "Compliance Built-In",
     description: "CAN-SPAM, GDPR, and CASL compliant. Automatic unsubscribe handling, opt-in verification, and suppression list management.",
+    accent: "text-secondary",
+    bg: "bg-secondary/5",
   },
 ];
 
@@ -65,29 +74,37 @@ export default function LeadGeniusPage() {
   return (
     <div className="overflow-hidden">
       {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-bg-dark to-bg-dark" />
-        <div className="absolute inset-0">
-          <div className="absolute top-1/3 left-1/4 size-[400px] rounded-full bg-accent/10 blur-[120px] animate-pulse-glow" />
-          <div className="absolute bottom-1/3 right-1/4 size-[300px] rounded-full bg-primary/10 blur-[100px] animate-float-slow" />
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+        {/* Pearl white background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/[0.03] via-white to-white" />
+
+        {/* Ambient blobs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/3 left-1/4 size-[400px] rounded-full bg-accent/[0.06] blur-[120px] animate-pulse-glow" />
+          <div className="absolute bottom-1/3 right-1/4 size-[300px] rounded-full bg-primary/[0.05] blur-[100px] animate-float-slow" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[250px] rounded-full bg-secondary/[0.04] blur-[90px]" />
         </div>
-        <div className="absolute inset-0 opacity-[0.02]"
+
+        {/* Dot pattern overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.4]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,.1) 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,0.06) 1px, transparent 0)`,
+            backgroundSize: "24px 24px",
           }}
         />
 
-        <div className="container-main relative z-10">
+        <div className="container-main relative z-10 pt-28 pb-20">
           <div className="max-w-4xl">
             <AnimatedSection>
-              <Badge variant="accent" className="mb-6">
-                <Target className="size-3" /> Outreach Engine
-              </Badge>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs text-accent font-medium tracking-wide mb-6">
+                <Target className="size-3.5" />
+                Outreach Engine
+              </div>
             </AnimatedSection>
 
             <AnimatedSection delay={100}>
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9] mb-6">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.9] mb-6 text-text-primary">
                 LeadGenius
                 <br />
                 <span className="gradient-text-accent">Multi-Channel Outreach</span>
@@ -105,14 +122,14 @@ export default function LeadGeniusPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:scale-[1.02]"
+                  className="group inline-flex items-center gap-2 rounded-full gradient-bg-accent px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:scale-[1.02]"
                 >
                   Start Free Trial
-                  <ArrowRight className="size-4" />
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full bg-bg-card text-text-primary border border-border px-8 py-3.5 text-base font-medium hover:border-accent/30 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-text-secondary border border-border hover:border-accent/30 hover:text-text-primary glass-card transition-all duration-300"
                 >
                   Book Demo
                 </Link>
@@ -125,7 +142,7 @@ export default function LeadGeniusPage() {
       {/* ==================== STATS ==================== */}
       <section className="py-16 relative">
         <div className="container-main">
-          <div className="rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 md:p-12">
+          <div className="glass-card rounded-3xl p-8 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, i) => (
                 <AnimatedSection key={stat.label} delay={i * 100}>
@@ -144,10 +161,13 @@ export default function LeadGeniusPage() {
 
       {/* ==================== HOW IT WORKS ==================== */}
       <section className="py-24 relative">
-        <div className="container-main">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-accent/[0.02] to-white pointer-events-none" />
+        <div className="container-main relative">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="accent" className="mb-4">How It Works</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs text-accent font-medium tracking-wide mb-4">
+              How It Works
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary">
               Outreach Engine <span className="gradient-text-accent">Architecture</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
@@ -161,25 +181,31 @@ export default function LeadGeniusPage() {
                 step: "01",
                 title: "Warm Domain Ramp-Up",
                 desc: "Day 1-7: 50 emails/day. Day 8-14: ramp 20% daily based on engagement. Day 15+: full volume with real-time feedback loop monitoring.",
-                color: "border-accent/30",
+                color: "border-accent/20",
+                iconColor: "text-accent",
+                iconBg: "bg-accent/5",
               },
               {
                 step: "02",
                 title: "Send-Time Optimization",
                 desc: "Per-recipient scheduling based on historical open patterns, preferred device, and previous response latency — not a generic 'best time.'",
-                color: "border-primary/30",
+                color: "border-primary/20",
+                iconColor: "text-primary",
+                iconBg: "bg-primary/5",
               },
               {
                 step: "03",
                 title: "AI Agent Nurturing",
                 desc: "Autonomous conversations across email and WhatsApp. AI handles Q&A, objections, and qualifying — only escalates hot leads to humans.",
-                color: "border-secondary/30",
+                color: "border-secondary/20",
+                iconColor: "text-secondary",
+                iconBg: "bg-secondary/5",
               },
             ].map((item, i) => (
               <AnimatedSection key={item.step} delay={i * 150}>
-                <div className={`relative rounded-2xl border ${item.color} bg-bg-card p-8 h-full`}>
-                  <div className="text-5xl font-bold text-accent/30 mb-4">{item.step}</div>
-                  <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
+                <div className={`relative glass-card rounded-2xl p-8 h-full hover:glass-strong hover:shadow-md transition-all duration-500 border ${item.color}`}>
+                  <div className="text-5xl font-bold text-accent/20 mb-4">{item.step}</div>
+                  <h3 className="text-xl font-semibold mb-3 text-text-primary">{item.title}</h3>
                   <p className="text-text-secondary leading-relaxed">{item.desc}</p>
                 </div>
               </AnimatedSection>
@@ -190,11 +216,12 @@ export default function LeadGeniusPage() {
 
       {/* ==================== FEATURES ==================== */}
       <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.02] to-transparent" />
-        <div className="container-main relative">
+        <div className="container-main">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="accent" className="mb-4">Features</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs text-accent font-medium tracking-wide mb-4">
+              Features
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary">
               Enterprise Outreach <span className="gradient-text-accent">Infrastructure</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
@@ -205,7 +232,13 @@ export default function LeadGeniusPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, i) => (
               <AnimatedSection key={feature.title} delay={i * 80}>
-                <FeatureCard {...feature} />
+                <div className="group rounded-2xl glass-card p-7 h-full hover:glass-strong hover:shadow-md transition-all duration-500">
+                  <div className={`size-11 rounded-xl ${feature.bg} border border-accent/10 flex items-center justify-center mb-4 ${feature.accent} group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className="size-5" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 text-text-primary">{feature.title}</h3>
+                  <p className="text-sm text-text-secondary leading-relaxed">{feature.description}</p>
+                </div>
               </AnimatedSection>
             ))}
           </div>
@@ -214,10 +247,13 @@ export default function LeadGeniusPage() {
 
       {/* ==================== EMAIL INFRASTRUCTURE DETAIL ==================== */}
       <section className="py-24 relative">
-        <div className="container-main">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-accent/[0.02] to-white pointer-events-none" />
+        <div className="container-main relative">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="accent" className="mb-4">Infrastructure</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs text-accent font-medium tracking-wide mb-4">
+              Infrastructure
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary">
               Warm Domain <span className="gradient-text-accent">System</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
@@ -231,24 +267,30 @@ export default function LeadGeniusPage() {
                 title: "50+ Warm Domains",
                 desc: "Graduated ramp-up per domain. Each domain sends from low volume to full capacity over 14 days, building sender reputation naturally.",
                 icon: Globe,
+                accent: "text-accent",
+                bg: "bg-accent/5",
               },
               {
                 title: "Real-Time Monitoring",
                 desc: "Every send is tracked — inbox vs spam placement, bounce rates, engagement metrics. Automatic pause if any domain shows negative signals.",
                 icon: BarChart3,
+                accent: "text-primary",
+                bg: "bg-primary/5",
               },
               {
                 title: "Smart Rotation",
                 desc: "Messages are automatically distributed across domains to maintain consistent volume. If one domain underperforms, traffic shifts to healthier domains.",
                 icon: TrendingUp,
+                accent: "text-secondary",
+                bg: "bg-secondary/5",
               },
             ].map((item, i) => (
               <AnimatedSection key={item.title} delay={i * 120}>
-                <div className="rounded-2xl border border-border/50 bg-bg-card p-8 h-full group hover:border-accent/20 transition-all duration-500">
-                  <div className="size-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center mb-4">
-                    <item.icon className="size-6 text-accent" />
+                <div className="group rounded-2xl glass-card p-8 h-full hover:glass-strong hover:shadow-md transition-all duration-500">
+                  <div className={`size-12 rounded-xl ${item.bg} border border-accent/10 flex items-center justify-center mb-4 ${item.accent}`}>
+                    <item.icon className="size-6" />
                   </div>
-                  <h3 className="text-lg font-semibold mb-3">{item.title}</h3>
+                  <h3 className="text-lg font-semibold mb-3 text-text-primary">{item.title}</h3>
                   <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
                 </div>
               </AnimatedSection>
@@ -261,8 +303,10 @@ export default function LeadGeniusPage() {
       <section className="py-24 relative">
         <div className="container-main">
           <AnimatedSection className="text-center mb-16">
-            <Badge variant="accent" className="mb-4">Pricing</Badge>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs text-accent font-medium tracking-wide mb-4">
+              Pricing
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary">
               Scale Your <span className="gradient-text-accent">Outreach</span>
             </h2>
           </AnimatedSection>
@@ -295,20 +339,22 @@ export default function LeadGeniusPage() {
               },
             ].map((tier, i) => (
               <AnimatedSection key={tier.name} delay={i * 100}>
-                <div className={`relative rounded-2xl border p-8 h-full flex flex-col ${
+                <div className={`relative rounded-2xl p-8 h-full flex flex-col transition-all duration-500 ${
                   tier.featured
-                    ? "border-accent/30 bg-gradient-to-b from-accent/5 to-bg-card shadow-lg shadow-accent/10"
-                    : "border-border/50 bg-bg-card"
+                    ? "glass-card border-accent/30 shadow-lg shadow-accent/10 hover:shadow-xl hover:shadow-accent/15"
+                    : "glass-card hover:glass-strong hover:shadow-md"
                 }`}>
                   {tier.featured && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                      <Badge variant="accent">Most Popular</Badge>
+                      <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium bg-accent/10 text-accent border border-accent/20 glass-card">
+                        Most Popular
+                      </div>
                     </div>
                   )}
-                  <h3 className="text-xl font-bold mb-1">{tier.name}</h3>
+                  <h3 className="text-xl font-bold mb-1 text-text-primary">{tier.name}</h3>
                   <p className="text-sm text-text-secondary mb-4">{tier.desc}</p>
                   <div className="mb-6">
-                    <span className="text-4xl font-bold">{tier.price}</span>
+                    <span className="text-4xl font-bold text-text-primary">{tier.price}</span>
                     {tier.period && <span className="text-text-muted text-sm">{tier.period}</span>}
                   </div>
                   <ul className="space-y-3 mb-8 flex-1">
@@ -323,8 +369,8 @@ export default function LeadGeniusPage() {
                     href="#"
                     className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 ${
                       tier.featured
-                        ? "bg-gradient-to-r from-accent to-primary text-white hover:shadow-lg hover:shadow-accent/25"
-                        : "bg-bg-card-hover text-text-primary border border-border hover:border-accent/30"
+                        ? "gradient-bg-accent text-white hover:shadow-lg hover:shadow-accent/25"
+                        : "glass-card text-text-secondary border border-border hover:border-accent/30 hover:text-text-primary"
                     }`}
                   >
                     Start Trial <ArrowRight className="size-4" />
@@ -336,26 +382,42 @@ export default function LeadGeniusPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ==================== CTA ==================== */}
       <section className="py-24 relative">
-        <div className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[500px] rounded-full bg-gradient-to-r from-accent/10 to-primary/10 blur-[120px]" />
+        <div className="absolute inset-0 overflow-hidden bg-gradient-to-b from-white via-accent/[0.02] to-white">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[500px] rounded-full bg-gradient-to-r from-accent/[0.06] to-primary/[0.04] blur-[140px]" />
         </div>
         <div className="container-main relative text-center">
           <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-card text-xs text-accent font-medium tracking-wide mb-6">
+              <Zap className="size-3.5" />
+              Get Started
+            </div>
+          </AnimatedSection>
+          <AnimatedSection delay={100}>
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 text-text-primary">
               Hit Every <span className="gradient-text-accent">Inbox</span>
             </h2>
             <p className="text-text-secondary max-w-lg mx-auto mb-8">
               Stop landing in spam. Start closing deals.
             </p>
-            <Link
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-accent to-primary px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:scale-[1.02]"
-            >
-              Start Free Trial
-              <ArrowRight className="size-4" />
-            </Link>
+          </AnimatedSection>
+          <AnimatedSection delay={200}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="#"
+                className="group inline-flex items-center gap-2 rounded-full gradient-bg-accent px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-accent/25 hover:scale-[1.02]"
+              >
+                Start Free Trial
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+              <Link
+                href="#"
+                className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-text-secondary border border-border hover:border-accent/30 hover:text-text-primary glass-card transition-all duration-300"
+              >
+                Book Demo
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>

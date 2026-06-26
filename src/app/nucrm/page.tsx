@@ -63,21 +63,24 @@ const stats = [
 
 export default function NuCRMPage() {
   return (
-    <div className="overflow-hidden">
-      {/* ==================== HERO ==================== */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-bg-dark to-bg-dark" />
-        <div className="absolute inset-0">
-          <div className="absolute top-1/4 right-1/4 size-[500px] rounded-full bg-primary/10 blur-[150px] animate-pulse-glow" />
-          <div className="absolute bottom-1/4 left-1/4 size-[300px] rounded-full bg-secondary/10 blur-[100px] animate-float-slow" />
-        </div>
-        <div className="absolute inset-0 opacity-[0.02]"
+    <div className="overflow-hidden bg-bg-white">
+      {/* Ambient background blobs + dot pattern */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+        <div className="absolute top-1/4 right-1/4 size-[500px] rounded-full bg-primary/[0.06] blur-[150px]" />
+        <div className="absolute bottom-1/4 left-1/4 size-[300px] rounded-full bg-secondary/[0.06] blur-[100px]" />
+        <div className="absolute top-1/2 left-1/3 size-[400px] rounded-full bg-accent/[0.04] blur-[120px]" />
+        {/* Subtle dot pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.03]"
           style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,.1) 1px, transparent 0)`,
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(0,0,0,.15) 1px, transparent 0)`,
             backgroundSize: "40px 40px",
           }}
         />
+      </div>
 
+      {/* ==================== HERO ==================== */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
         <div className="container-main relative z-10">
           <div className="max-w-4xl">
             <AnimatedSection>
@@ -112,7 +115,7 @@ export default function NuCRMPage() {
                 </Link>
                 <Link
                   href="#"
-                  className="inline-flex items-center gap-2 rounded-full bg-bg-card text-text-primary border border-border px-8 py-3.5 text-base font-medium hover:border-primary/30 transition-all duration-300"
+                  className="inline-flex items-center gap-2 rounded-full glass-card text-text-primary px-8 py-3.5 text-base font-medium hover:border-primary/30 transition-all duration-300"
                 >
                   Book Demo
                 </Link>
@@ -125,7 +128,7 @@ export default function NuCRMPage() {
       {/* ==================== STATS ==================== */}
       <section className="py-16 relative">
         <div className="container-main">
-          <div className="rounded-3xl border border-border/50 bg-gradient-to-br from-bg-card to-bg-card-hover p-8 md:p-12">
+          <div className="glass-card rounded-3xl p-8 md:p-12">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, i) => (
                 <AnimatedSection key={stat.label} delay={i * 100}>
@@ -177,7 +180,7 @@ export default function NuCRMPage() {
               },
             ].map((item, i) => (
               <AnimatedSection key={item.step} delay={i * 150}>
-                <div className={`relative rounded-2xl border ${item.color} bg-bg-card p-8 h-full`}>
+                <div className={`relative rounded-2xl border ${item.color} glass-card p-8 h-full`}>
                   <div className="text-5xl font-bold gradient-text/30 mb-4">{item.step}</div>
                   <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
                   <p className="text-text-secondary leading-relaxed">{item.desc}</p>
@@ -190,7 +193,6 @@ export default function NuCRMPage() {
 
       {/* ==================== FEATURES ==================== */}
       <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.02] to-transparent" />
         <div className="container-main relative">
           <AnimatedSection className="text-center mb-16">
             <Badge variant="primary" className="mb-4">Features</Badge>
@@ -223,11 +225,11 @@ export default function NuCRMPage() {
           </AnimatedSection>
 
           <AnimatedSection>
-            <div className="rounded-2xl border border-border/50 overflow-hidden">
+            <div className="rounded-2xl overflow-hidden glass-card">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="border-b border-border/50 bg-bg-card">
+                    <tr className="border-b border-border/50 glass-strong">
                       <th className="text-left py-4 px-6 font-semibold text-text-primary">Metric</th>
                       <th className="text-left py-4 px-6 font-semibold text-text-muted">Industry Average</th>
                       <th className="text-left py-4 px-6 font-semibold text-primary">NuCRM</th>
@@ -240,8 +242,8 @@ export default function NuCRMPage() {
                       { metric: "Deals Closed/Month", industry: "47", nucrm: "186" },
                       { metric: "Agent Efficiency", industry: "23 leads/day", nucrm: "89 leads/day" },
                       { metric: "Lead Response SLA", industry: "24 hours", nucrm: "Instant (< 30s)" },
-                    ].map((row) => (
-                      <tr key={row.metric} className="hover:bg-white/[0.02] transition-colors">
+                    ].map((row, idx) => (
+                      <tr key={row.metric} className={`transition-colors ${idx % 2 === 0 ? 'bg-white/[0.02]' : 'bg-white/[0.06]'} hover:bg-white/[0.08]`}>
                         <td className="py-4 px-6 font-medium">{row.metric}</td>
                         <td className="py-4 px-6 text-text-muted">{row.industry}</td>
                         <td className="py-4 px-6 text-primary font-semibold">{row.nucrm}</td>
@@ -295,10 +297,10 @@ export default function NuCRMPage() {
               },
             ].map((tier, i) => (
               <AnimatedSection key={tier.name} delay={i * 100}>
-                <div className={`relative rounded-2xl border p-8 h-full flex flex-col ${
+                <div className={`relative rounded-2xl border p-8 h-full flex flex-col glass-card ${
                   tier.featured
-                    ? "border-primary/30 bg-gradient-to-b from-primary/5 to-bg-card shadow-lg shadow-primary/10"
-                    : "border-border/50 bg-bg-card"
+                    ? "border-primary/30 shadow-lg shadow-primary/10"
+                    : "border-white/80"
                 }`}>
                   {tier.featured && (
                     <div className="absolute -top-3 left-1/2 -translate-x-1/2">
@@ -324,7 +326,7 @@ export default function NuCRMPage() {
                     className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300 ${
                       tier.featured
                         ? "gradient-bg text-white hover:shadow-lg hover:shadow-primary/25"
-                        : "bg-bg-card-hover text-text-primary border border-border hover:border-primary/30"
+                        : "glass-card text-text-primary hover:border-primary/30"
                     }`}
                   >
                     {tier.name === "Starter" ? "Get Started" : "Start Trial"}
@@ -337,27 +339,30 @@ export default function NuCRMPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-24 relative">
+      {/* ==================== CTA ==================== */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 gradient-bg opacity-[0.04]" />
         <div className="absolute inset-0">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-[500px] rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 blur-[120px]" />
         </div>
-        <div className="container-main relative text-center">
-          <AnimatedSection>
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
-              Ready to <span className="gradient-text">Close More Deals</span>?
-            </h2>
-            <p className="text-text-secondary max-w-lg mx-auto mb-8">
-              Join 5,000+ sales teams using NuCRM to win faster.
-            </p>
-            <Link
-              href="#"
-              className="inline-flex items-center gap-2 rounded-full gradient-bg px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02]"
-            >
-              Start Free Trial
-              <ArrowRight className="size-4" />
-            </Link>
-          </AnimatedSection>
+        <div className="container-main relative">
+          <div className="glass-card rounded-3xl p-12 md:p-16 text-center max-w-3xl mx-auto">
+            <AnimatedSection>
+              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">
+                Ready to <span className="gradient-text">Close More Deals</span>?
+              </h2>
+              <p className="text-text-secondary max-w-lg mx-auto mb-8">
+                Join 5,000+ sales teams using NuCRM to win faster.
+              </p>
+              <Link
+                href="#"
+                className="inline-flex items-center gap-2 rounded-full gradient-bg px-8 py-3.5 text-base font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 hover:scale-[1.02]"
+              >
+                Start Free Trial
+                <ArrowRight className="size-4" />
+              </Link>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
     </div>
