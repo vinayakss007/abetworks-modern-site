@@ -28,28 +28,28 @@ export function Header() {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         isScrolled
-          ? "glass shadow-lg shadow-black/5 border-b border-white/[0.04]"
+          ? "glass-strong shadow-sm"
           : "bg-transparent"
       )}
     >
       <div className="container-main flex h-16 md:h-18 items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="size-9 rounded-xl gradient-bg-premium flex items-center justify-center text-white font-extrabold text-sm tracking-tight transition-all duration-300 group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-primary/20">
+          <div className="size-9 rounded-xl gradient-bg flex items-center justify-center text-white font-extrabold text-sm tracking-tight transition-all duration-300 group-hover:shadow-lg group-hover:shadow-primary/20">
             AW
           </div>
-          <span className="text-base md:text-lg font-semibold tracking-tight">
-            Abet <span className="gradient-text-accent">Works</span>
+          <span className="text-base md:text-lg font-semibold tracking-tight text-text-primary">
+            Abet <span className="text-primary">Works</span>
           </span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-0.5 bg-white/[0.03] rounded-2xl px-1.5 py-1 border border-white/[0.05]">
+        <nav className="hidden md:flex items-center gap-0.5 glass rounded-2xl px-1.5 py-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="relative px-4 py-2 text-sm text-text-secondary/80 hover:text-text-primary transition-colors duration-200 rounded-xl hover:bg-white/[0.06]"
+              className="relative px-4 py-2 text-sm text-text-secondary hover:text-text-primary transition-colors duration-200 rounded-xl hover:bg-black/[0.04]"
             >
               {link.label}
             </Link>
@@ -60,19 +60,16 @@ export function Header() {
         <div className="hidden md:flex items-center gap-4">
           <Link
             href="/nucrm"
-            className="relative inline-flex items-center gap-1.5 rounded-full px-5 py-2 text-sm font-medium text-white overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 rounded-full gradient-bg px-5 py-2 text-sm font-semibold text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:scale-[1.02]"
           >
-            <span className="absolute inset-0 gradient-bg-premium rounded-full" />
-            <span className="relative flex items-center gap-1.5">
-              Get Started <ArrowUpRight className="size-3.5" />
-            </span>
+            Get Started <ArrowUpRight className="size-3.5" />
           </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile button */}
         <button
           onClick={() => setIsMobileOpen(!isMobileOpen)}
-          className="md:hidden p-2.5 text-text-secondary hover:text-text-primary transition-colors bg-white/[0.04] rounded-xl border border-white/[0.06]"
+          className="md:hidden p-2.5 text-text-secondary hover:text-text-primary transition-colors glass rounded-xl"
           aria-label="Toggle menu"
         >
           {isMobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
@@ -81,23 +78,23 @@ export function Header() {
 
       {/* Mobile menu */}
       {isMobileOpen && (
-        <div className="md:hidden border-t border-white/[0.06] bg-bg-card/95 backdrop-blur-2xl">
+        <div className="md:hidden border-t border-border glass-strong">
           <div className="container-main py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMobileOpen(false)}
-                className="block px-4 py-3 text-sm text-text-secondary hover:text-text-primary hover:bg-white/[0.04] rounded-xl transition-colors"
+                className="block px-4 py-3 text-sm text-text-secondary hover:text-text-primary hover:bg-black/[0.04] rounded-xl transition-colors"
               >
                 {link.label}
               </Link>
             ))}
-            <hr className="border-white/[0.06] my-3" />
+            <hr className="border-border my-3" />
             <Link
               href="/nucrm"
               onClick={() => setIsMobileOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-full gradient-bg-premium px-5 py-3 text-sm font-medium text-white"
+              className="flex items-center justify-center gap-2 rounded-full gradient-bg px-5 py-3 text-sm font-semibold text-white"
             >
               Get Started <ArrowUpRight className="size-4" />
             </Link>
