@@ -95,12 +95,25 @@
 
 /* ===== Utility classes ===== */
 
+.container-main {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 40rem) {
+  .container-main {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
 @utility container-main {
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: max(1rem, calc((100vw - 1280px) / 2 + 1rem));
-  padding-right: max(1rem, calc((100vw - 1280px) / 2 + 1rem));
 }
 
 /* Gradient text */
